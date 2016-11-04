@@ -1,9 +1,36 @@
 <navbar></navbar>
-<header>
-  <hero></hero>
-</header>
-<main>
-  <div>
-    <h1>Found in {{ $ctrl.name }}.html</h1>
-  </div>
-</main>
+<md-content class="md-padding home-container" layout="column">
+  <md-button class="md-raised md-primary create-poll" ui-sref="about">Create New Poll</md-button>
+  <md-card>        
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Polls:</span>
+        <div flex></div>
+        <md-button class="md-icon-button" ng-click="$ctrl.loadStuff()">
+          <md-icon>refresh</md-icon>
+        </md-button>
+      </div>
+    </md-toolbar>
+    
+    <md-table-container>
+      <table md-table md-row-select="false" multiple="false" ng-model="$ctrl.selected" md-progress="$ctrl.promise">
+        <thead md-head md-order="$ctrl.query.order" md-on-reorder="$ctrl.logOrder">
+          <tr md-row>
+            <th md-column md-order-by="name"><span>Poll Name</span></th>
+            <th md-column md-order-by="percentage"><span>Percentage</span></th>
+            <th md-column md-order-by="status"><span>Status</span></th>
+          </tr>
+        </thead>
+        <tbody md-body>
+          <tr md-row md-select="$ctrl.dessert" md-on-select="$ctrl.logItem" md-auto-select="true" ng-repeat="dessert in $ctrl.desserts.data | filter: filter.search | orderBy: $ctrl.query.order | limitTo: $ctrl.query.limit : ($ctrl.query.page - 1) * $ctrl.query.limit">
+            <td md-cell>{{dessert.name}}</td>
+            <td md-cell>{{dessert.percentage}}%</td>
+            <td md-cell>{{dessert.status}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </md-table-container>
+
+    <md-table-pagination md-limit="$ctrl.query.limit" md-limit-options="$ctrl.limitOptions" md-page="$ctrl.query.page" md-total="{{$ctrl.desserts.count}}" md-on-paginate="$ctrl.logPagination"></md-table-pagination>
+  </md-card>
+</md-content>
