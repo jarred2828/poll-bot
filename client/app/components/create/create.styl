@@ -1,2 +1,31 @@
 .create-container
   min-height: 100vh
+  > h2
+    text-align: center
+  > p 
+    font-size: 14px
+    margin-top: 30px
+    md-input-container
+      margin: -10px 0 0 10px
+      .md-errors-spacer
+        min-height: 0
+  md-card
+    md-card-content
+      p
+        font-size: 14px
+        margin-bottom: 0
+        > md-input-container
+          margin: -10px 0 0 10px
+          .md-errors-spacer
+            min-height: 0
+        > span
+          margin-left: 10px
+        &.second-layout
+          margin-left: 50px
+      .md-button.add-question
+        width: 150px
+        text-transform: capitalize
+    md-card-actions
+      .md-button.submit-poll
+        text-transform: capitalize
+        padding: 0 10px

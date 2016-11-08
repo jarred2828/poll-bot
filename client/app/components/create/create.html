@@ -1,4 +1,54 @@
 <navbar></navbar>
 <md-content class="md-padding create-container">
-  <h2>This is create page.</h2>
+  <h2>Create Your First Poll</h2>
+  <p layout="row">
+    Name of poll:
+    <md-input-container flex="30">
+      <input ng-model="$ctrl.poll.name">
+    </md-input-container>
+  </p>
+  <md-card class="create-poll">
+    <md-card-content layout="column">
+      <p layout="row">
+        Question: 
+        <md-input-container flex="30">
+          <input ng-model="$ctrl.poll.question">
+        </md-input-container>
+      </p>
+      <div layout="row">
+        <p layout="row" flex="40">
+          Answer: 
+          <md-input-container flex="80">
+            <input ng-model="$ctrl.poll.answer">
+          </md-input-container>
+        </p>
+        <p>Type of answer: Multiple Choice</p>
+      </div>
+      <p layout="row">
+        Send to:
+        <md-input-container md-no-float flex="30">
+          <input ng-model="$ctrl.poll.target" type="text">
+          <md-icon md-font-set="material-icons" style="display:inline-block;">youtube_searched_for</md-icon>
+        </md-input-container>
+      </p>
+      <div layout="row">
+        <p layout="row">
+          Start: 
+          <md-input-container>
+            <md-datepicker ng-model="$ctrl.poll.start"></md-datepicker>
+          </md-input-container>
+        </p>
+        <p layout="row" class="second-layout">
+          End: 
+          <md-input-container>
+            <md-datepicker ng-model="$ctrl.poll.end"></md-datepicker>
+          </md-input-container>
+        </p>
+      </div>
+      <md-button class="md-primary add-question">Add another question</md-button>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="start">
+      <md-button class="md-raised md-primary submit-poll">Submit Poll</md-button>
+    </md-card-actions>
+  </md-card>
 </md-content>

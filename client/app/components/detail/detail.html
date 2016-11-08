@@ -11,21 +11,21 @@
       <p layout="row">
         Question: 
         <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.question}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'">
+        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
           <input ng-model="$ctrl.pollInfo.question">
         </md-input-container>
       </p>
       <p layout="row">
         Answer: 
         <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.answer}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'">
+        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
           <input ng-model="$ctrl.pollInfo.answer">
         </md-input-container>
       </p>
       <p layout="row">
         Audience: 
         <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.audience}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'">
+        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
           <input ng-model="$ctrl.pollInfo.audience">
         </md-input-container>
       </p>
