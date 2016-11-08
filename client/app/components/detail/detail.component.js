@@ -4,7 +4,9 @@ import './detail.styl';
 
 let detailComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+    pollInfo: '<'
+  },
   template,
   controller
 };

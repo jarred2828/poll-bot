@@ -1,8 +1,7 @@
 class DetailController {
-  static $inject = ['$stateParams'];
-  constructor($stateParams) {
+  static $inject = [];
+  constructor() {
     this.name = 'detail';
-    this.id = $stateParams.id;
   }
 }
 

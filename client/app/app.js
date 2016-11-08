@@ -2,7 +2,6 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngMaterial from 'angular-material';
 import 'angular-material-data-table';
-import * as _ from 'lodash';
 
 import Common from './common/common';
 import Components from './components/components';
