@@ -1,12 +1,14 @@
 import angular from 'angular';
 import Home from './home/home';
-import About from './about/about';
+import Create from './create/create';
 import Login from './login/login';
+import Detail from './detail/detail';
 
 let componentModule = angular.module('app.components', [
   Home,
-  About,
-  Login
+  Create,
+  Login,
+  Detail
 ])
   
 .name;

@@ -1,9 +1,10 @@
 import angular from 'angular';
 
 class HomeController {
-  static $inject = ['$timeout'];
-  constructor($timeout) {
+  static $inject = ['$timeout', '$state'];
+  constructor($timeout, $state) {
     this.$timeout = $timeout;
+    this.$state = $state;
     this.init();
   }
 
@@ -21,23 +22,31 @@ class HomeController {
         count: 4,
         data: [
           {
+            id: 1,
             name: 'Sample Name',
-            percentage: 50,
+            total: 30,
+            completed: 20,
             status: 'Active'
           },
           {
+            id: 2,
             name: 'Sample Name',
-            percentage: 0,
+            total: 50,
+            completed: 15,
             status: 'Scheduled'
           },
           {
+            id: 3,
             name: 'Sample Name',
-            percentage: 0,
+            total: 0,
+            completed: 0,
             status: 'Draft'
           },
           {
+            id: 4,
             name: 'Sample Name',
-            percentage: 70,
+            total: 45,
+            completed: 25,
             status: 'Completed'
           }
         ]
@@ -56,17 +65,15 @@ class HomeController {
   }
   
   logItem(item) {
-    console.log(this.selected);
-    console.log(item, 'was selected');
+  
   }
   
   logOrder(order) {
-    console.log('order: ', order);
+    
   }
   
   logPagination(page, limit) {
-    console.log('page: ', page);
-    console.log('limit: ', limit);
+    
   }
 }
 
