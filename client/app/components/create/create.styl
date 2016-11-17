@@ -1,7 +1,145 @@
+.draggable-icon
+  cursor: move
+  width: 24px
+  height: 24px
+  overflow: hidden
+  display: none
+  position: relative
+  text-align: left
+  .icon-content
+    position: absolute
+    left: 0
+    top: -1536px
+    &:before
+      content: url(//ssl.gstatic.com/docs/forms/qp_sprite71.svg)
+      opacity: .3
+  &.rotated
+    -webkit-transform: rotate(90deg)
+    -moz-transform: rotate(90deg)
+    -ms-transform: rotate(90deg)
+    transform: rotate(90deg)
 .create-container
   min-height: 100vh
-  > h2
+  > h1
     text-align: center
+    font-size: 30px
+  .create-poll
+    width: 1200px
+    margin: 0 calc(50% - 600px)
+    @media screen and (max-width: 1249px)
+      width: 100%
+      margin: 0
+    > ul
+      margin: 0
+      padding-left: 0
+      list-style: none
+      > li
+        padding: 20px
+        &.active, &.item:active
+          border-left: 3px solid #4d90fe
+          -webkit-box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3)
+          box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3)
+          > .draggable-icon
+            display: inline-block
+            margin-top: -20px
+          > .delete-query
+            display: block
+        .header
+          width: 100%
+          .poll-name
+            font-size: 20px
+            margin-bottom: 0
+            margin-top: 10px
+            .md-errors-spacer
+              min-height: 0
+          .send-to
+            font-size: 16px
+            margin-bottom: 0
+          .immediate
+            font-size: 16px
+          .send-time
+            margin: -45px 0 0 100px
+        .multiple
+          width: 100%
+          .question
+            font-size: 18px
+            margin-bottom: 0
+          .selection-type
+            font-size: 16px
+            background: gainsboro
+            padding: 0 10px
+            border-radius: 5px
+            height: 40px
+            margin-top: 10px
+            margin-left: 10px
+          .editable
+            > ul
+              padding-left: 0
+              counter-reset: item
+              list-style: none
+              > li.option
+                position: relative
+                padding-left: 50px
+                &:before
+                  content: counter(item)'. '
+                  counter-increment: item
+                  position: absolute
+                  top: 8px
+                  font-size: 16px
+                  left: 30px
+                &:hover
+                  .draggable-icon
+                    display: inline-block
+                .draggable-icon
+                  position: absolute
+                  left: 0
+                  top: 5px
+                .option-name
+                  margin: 0
+                  font-size: 16px
+                  md-icon
+                    cursor: pointer
+                &.add-new a
+                  font-size: 16px
+                  color: #aaaaaa
+                  line-height: 2.2
+                  cursor: pointer
+        .short-answer
+          width: 100%
+          .question
+            font-size: 18px
+          .selection-type
+            font-size: 16px
+            background: gainsboro
+            padding: 0 10px
+            border-radius: 5px
+            height: 40px
+            margin-top: 10px
+            margin-left: 10px
+          .editable
+            .short-answer-text
+              margin: 0
+              font-size: 16px
+        .attachment
+          width: 100%
+          .question
+            font-size: 18px
+          .selection-type
+            font-size: 16px
+            background: gainsboro
+            padding: 0 10px
+            border-radius: 5px
+            height: 40px
+            margin-top: 10px
+            margin-left: 10px
+        .delete-query
+          width: 100%
+          text-align: right
+          display: none
+          md-icon
+            cursor: pointer
+    .footer
+      padding: 10px
   > p 
     font-size: 14px
     margin-top: 30px

@@ -2,6 +2,7 @@ import angular from 'angular';
 import uiRouter from 'angular-ui-router';
 import ngMaterial from 'angular-material';
 import 'angular-material-data-table';
+import 'angular-ui-sortable';
 
 import Common from './common/common';
 import Components from './components/components';
@@ -16,7 +17,8 @@ angular.module('app', [
     Common,
     Components,
     ngMaterial,
-    'md.data.table'
+    'md.data.table',
+    'ui.sortable'
   ])
   .config(($locationProvider, $urlRouterProvider) => {
     "ngInject";
