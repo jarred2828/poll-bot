@@ -1,6 +1,30 @@
-<nav class="navbar" layout="row" layout-align="start center">
-  <div class="user" layout="row">
+<md-toolbar class="navbar" layout="row" layout-align="space-between center">
+  <div class="user" layout="row" layout-align="center center">
     <img src="https://assets.ifttt.com/images/channels/629925599/icons/medium.png">
-    <span>Poll Bot Icon</span>
+    <h2>Pollbot</h2>
   </div>
-</nav>
+  <div class="search-bar">
+    <md-icon md-font-set="material-icons">search</md-icon>
+    <input ng-model="$ctrl.searchWord" placeholder="Search">
+  </div>
+  <md-menu>
+    <md-button class="avatar" aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
+      <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
+    </md-button>
+    <md-menu-content width="5">
+      <md-card>
+        <md-card-title>
+          <md-card-title-media>
+            <div class="md-media-sm card-media" layout>
+              <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
+            </div>
+          </md-card-title-media>
+          <md-card-title-text>
+            <span class="md-headline">John Smith</span>
+            <span class="md-subhead description"><a class="log-out" ui-sref="login"><md-icon md-font-set="material-icons">input</md-icon>Sign out</a></span>
+          </md-card-title-text>
+        </md-card-title>
+      </md-card>
+    </md-menu-content>
+  </md-menu>
+</md-toolbar>
