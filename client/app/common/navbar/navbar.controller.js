@@ -1,6 +1,7 @@
 class NavbarController {
-  constructor() {
+  constructor($state) {
     this.name = 'navbar';
+    this.$state = $state;
   }
 
   openMenu($mdOpenMenu, ev) {

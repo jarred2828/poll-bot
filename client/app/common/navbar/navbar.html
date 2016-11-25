@@ -1,9 +1,13 @@
 <md-toolbar class="navbar" layout="row" layout-align="space-between center">
-  <div class="user" layout="row" layout-align="center center">
+  <div class="user" layout="row" layout-align="center center" ng-if="$ctrl.$state.current.name == 'home'">
     <img src="https://assets.ifttt.com/images/channels/629925599/icons/medium.png">
     <h2>Pollbot</h2>
   </div>
-  <div class="search-bar">
+  <div class="back-btn" layout="row" layout-align="center center" ng-if="$ctrl.$state.current.name != 'home'">
+    <md-button class="md-icon-button" ui-sref="home"><md-icon md-font-set="material-icons">arrow_back</md-icon></md-button>
+    <h2>{{$ctrl.pollName || 'Poll Name'}}</h2>
+  </div>
+  <div class="search-bar" ng-if="$ctrl.$state.current.name == 'home'">
     <md-icon md-font-set="material-icons">search</md-icon>
     <input ng-model="$ctrl.searchWord" placeholder="Search">
   </div>

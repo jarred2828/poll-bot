@@ -4,9 +4,11 @@ import './navbar.styl';
 
 let navbarComponent = {
   restrict: 'E',
-  bindings: {},
+  bindings: {
+  	'pollName': '='
+  },
   template,
-  controller
+  controller: ['$state', controller]
 };
 
 export default navbarComponent;

@@ -20,7 +20,7 @@ let detailModule = angular.module('detail', [
           let data = [
             {
               id: 1,
-              name: 'Sample Name',
+              name: 'Sample Name 1',
               question: 'Lorem ipsum',
               answer: 'Lorem ipsum',
               audience: 'Lorem ipsum',
@@ -32,7 +32,7 @@ let detailModule = angular.module('detail', [
             },
             {
               id: 2,
-              name: 'Sample Name',
+              name: 'Sample Name 2',
               question: 'Lorem ipsum',
               answer: 'Lorem ipsum',
               audience: 'Lorem ipsum',
@@ -44,7 +44,7 @@ let detailModule = angular.module('detail', [
             },
             {
               id: 3,
-              name: 'Sample Name',
+              name: 'Sample Name 3',
               question: 'Lorem ipsum',
               answer: 'Lorem ipsum',
               audience: 'Lorem ipsum',
@@ -56,7 +56,7 @@ let detailModule = angular.module('detail', [
             },
             {
               id: 4,
-              name: 'Sample Name',
+              name: 'Sample Name 4',
               question: 'Lorem ipsum',
               answer: 'Lorem ipsum',
               audience: 'Lorem ipsum',
