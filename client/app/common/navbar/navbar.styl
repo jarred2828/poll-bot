@@ -1,83 +1,91 @@
 @import '../common'
 
 .navbar
-  height: 100px
-  padding: 0 25px
-  .user
-    img
-      width: 50px
-      height: 50px
-    h2
-      line-height: 50px
-      margin-left: 20px
-      font-weight: 500
-  .back-btn
-    .md-button
-      margin: 0
-      md-icon
-        font-size: 35px
-        width: 35px
-        height: 35px
-        margin-top: -5px
-        margin-left: -7px
-    h2
-      font-weight: 500
-      margin-left: 10px
-  .search-bar
-    background-color: rgb(197, 202, 233)
-    border: 2px solid rgb(151, 151, 151)
-    padding: 15px
-    md-icon
-      color: rgb(63,81,181)
-      font-size: 50px
-      line-height: 0.5
-      margin-left: -10px
-    input
-      border: 0
-      outline: 0
-      background-color: transparent
-      color: rgba(0, 0, 0, 0.54)
-      margin-left: 25px
-      width: 45vw
-  md-menu.md-menu
-    margin: 0
-    .avatar
-      margin: 0
-      padding: 0
+  .md-toolbar-tools
+    > img
+      width: 30px
+      margin-right: 10px
+    form.search-form
+      height: 46px
+      -webkit-align-items: center
+      align-items: center
+      display: -webkit-flex
       display: flex
-      width: auto
-      height: auto
-      border-radius: 50%
-      min-width: 0
-      min-height: 0
-      img
-        width: 60px
-        height: 60px
+      position: relative
+      padding-left: 50px
+      padding-right: 10px
+      margin-left: 20px
+      .md-button
+        z-index: 2
+        position: absolute
+        left: 0
+      input
+        z-index: 2
+        outline: 0
+        background: transparent
+        border: 0
+        font-size: 16px
+        width: 300px
+        &:focus
+          color: #000
+          & + .md-button
+            md-icon
+              color: #000
+              opacity: .54
+            & + .bg-mask
+              background-color: white
+      .bg-mask
+        position: absolute
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        background-color: rgba(255,255,255,0.16)
+        border-radius: 4px
+    md-menu.md-menu
+      margin: 0
+      .avatar
+        min-width: 0
+        min-height: 0
+        width: 32px
+        height: 32px
+        border-radius: 50%
+        padding: 0
+        margin: 0
+        img 
+          width: 100%
 .md-open-menu-container.md-active
-  top: 95px !important
-  right: 45px !important
+  top: 55px !important
+  right: 10px !important
   left: auto !important
   md-menu-content
     padding: 0
     md-card
       margin: 0
       md-card-title-media
-        margin-right: 20px
+        margin-right: 10px
         .md-media-sm
           border-radius: 50%
           overflow: hidden
+          width: 50px
+          height: 50px
           img
             width: 100%
             height: 100%
       md-card-title-text
-        .log-out
+        .md-headline
           font-size: 20px
-          text-transform: uppercase
-          line-height: 2
-          color: rgb(63,81,181)
-          cursor: pointer
-          text-decoration: none
-          md-icon
-            margin-top: -3px
-            margin-right: 10px
+          line-height: 0.5
+        .description
+          margin-top: 5px
+          .log-out
+            font-size: 15px
+            text-transform: uppercase
+            line-height: 2
             color: rgb(63,81,181)
+            cursor: pointer
+            text-decoration: none
+            md-icon
+              margin-top: -3px
+              margin-right: 10px
+              color: rgb(63,81,181)

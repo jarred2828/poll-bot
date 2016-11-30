@@ -1,34 +1,36 @@
-<md-toolbar class="navbar" layout="row" layout-align="space-between center">
-  <div class="user" layout="row" layout-align="center center" ng-if="$ctrl.$state.current.name == 'home'">
-    <img src="https://assets.ifttt.com/images/channels/629925599/icons/medium.png">
-    <h2>Pollbot</h2>
+<md-toolbar class="navbar">
+  <div class="md-toolbar-tools">
+    <img ng-if="$ctrl.$state.current.name == 'home'" src="https://assets.ifttt.com/images/channels/629925599/icons/medium.png">
+    <md-button ng-if="$ctrl.$state.current.name != 'home'" class="md-icon-button" ui-sref="home"><md-icon md-font-set="material-icons">arrow_back</md-icon></md-button>
+    <h2>
+      <span ng-if="$ctrl.$state.current.name == 'home'">Pollbot</span>
+      <span ng-if="$ctrl.$state.current.name != 'home'">{{$ctrl.pollName || 'Poll Name'}}</span>
+    </h2>
+    <form class="search-form" ng-if="$ctrl.$state.current.name == 'home'">
+      <input ng-model="$ctrl.searchWord" placeholder="Search">
+      <md-button class="md-icon-button"><md-icon md-font-set="material-icons">search</md-icon></md-button>
+      <div class="bg-mask"></div>
+    </form>
+    <span flex></span>
+    <md-menu>
+      <md-button class="avatar" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
+        <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
+      </md-button>
+      <md-menu-content width="4">
+        <md-card>
+          <md-card-title>
+            <md-card-title-media>
+              <div class="md-media-sm card-media" layout>
+                <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
+              </div>
+            </md-card-title-media>
+            <md-card-title-text>
+              <span class="md-headline">John Smith</span>
+              <span class="md-subhead description"><a class="log-out" ui-sref="login"><md-icon md-font-set="material-icons">input</md-icon>Sign out</a></span>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
+      </md-menu-content>
+    </md-menu>
   </div>
-  <div class="back-btn" layout="row" layout-align="center center" ng-if="$ctrl.$state.current.name != 'home'">
-    <md-button class="md-icon-button" ui-sref="home"><md-icon md-font-set="material-icons">arrow_back</md-icon></md-button>
-    <h2>{{$ctrl.pollName || 'Poll Name'}}</h2>
-  </div>
-  <div class="search-bar" ng-if="$ctrl.$state.current.name == 'home'">
-    <md-icon md-font-set="material-icons">search</md-icon>
-    <input ng-model="$ctrl.searchWord" placeholder="Search">
-  </div>
-  <md-menu>
-    <md-button class="avatar" aria-label="Open phone interactions menu" class="md-icon-button" ng-click="$ctrl.openMenu($mdOpenMenu, $event)">
-      <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
-    </md-button>
-    <md-menu-content width="5">
-      <md-card>
-        <md-card-title>
-          <md-card-title-media>
-            <div class="md-media-sm card-media" layout>
-              <img src="http://t1.gstatic.com/images?q=tbn:ANd9GcT6cX6XNZ8xIe7H2dwwckQehcGJMYHOve7mKUOBXoXKYuVpbTdXXiYr">
-            </div>
-          </md-card-title-media>
-          <md-card-title-text>
-            <span class="md-headline">John Smith</span>
-            <span class="md-subhead description"><a class="log-out" ui-sref="login"><md-icon md-font-set="material-icons">input</md-icon>Sign out</a></span>
-          </md-card-title-text>
-        </md-card-title>
-      </md-card>
-    </md-menu-content>
-  </md-menu>
 </md-toolbar>
