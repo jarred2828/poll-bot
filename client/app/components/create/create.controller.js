@@ -1,6 +1,9 @@
+import angular from 'angular';
+
 class CreateController {
   constructor() {
     this.name = 'create';
+    this.isHeaderActive = false;
     this.poll = {
       start: new Date(),
       end: new Date()
@@ -10,12 +13,12 @@ class CreateController {
         //
       },
       stop: (e, ui) => {
-        //
+        console.log(this.poll.queries);
       }
     }
     this.poll = {
       name: '',
-      sendTo: '',
+      sendTo: [],
       immediate: 1,
       sendTime: new Date(),
       queries: [
@@ -31,12 +34,59 @@ class CreateController {
         }
       ]
     };
+    this.allContacts = this.loadContacts();
+    this.filterSelected = true;
+  }
+
+  loadContacts() {
+    var contacts = [
+      'Marina Augustine',
+      'Oddr Sarno',
+      'Nick Giannopoulos',
+      'Narayana Garner',
+      'Anita Gros',
+      'Megan Smith',
+      'Tsvetko Metzger',
+      'Hector Simek',
+      'Some-guy withalongalastaname'
+    ];
+
+    return contacts.map((c, index) => {
+      var cParts = c.split(' ');
+      var contact = {
+        name: c,
+        email: cParts[0][0].toLowerCase() + '.' + cParts[1].toLowerCase() + '@example.com',
+        image: 'http://lorempixel.com/50/50/people?' + index
+      };
+      contact._lowername = contact.name.toLowerCase();
+      return contact;
+    });
+  }
+
+  querySearch(criteria) {
+    return criteria ? this.allContacts.filter(this.createFilterFor(criteria)) : [];
+  }
+
+  createFilterFor(query) {
+    var lowercaseQuery = angular.lowercase(query);
+
+    return (contact) => {
+      return (contact._lowername.indexOf(lowercaseQuery) != -1);;
+    };
+  }
+
+  activateHeader() {
+    this.poll.queries.forEach((ele) => {
+      ele.active = false;
+    })
+    this.isHeaderActive = true;
   }
 
   activateItem(index) {
     this.poll.queries.forEach((ele) => {
       ele.active = false;
     })
+    this.isHeaderActive = false;
     this.poll.queries[index].active = true;
   }
 

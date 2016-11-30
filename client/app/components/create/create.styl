@@ -24,8 +24,9 @@
     text-align: center
     font-size: 30px
   .create-poll
-    width: 1200px
-    margin: 0 calc(50% - 600px)
+    width: 770px
+    max-width: 100vw
+    margin: auto
     @media screen and (max-width: 1249px)
       width: 100%
       margin: 0
@@ -34,7 +35,24 @@
       padding-left: 0
       list-style: none
       > li
-        padding: 20px
+        padding: 20px 30px
+        outline: 0
+        &:not(.active)
+          input.md-input
+            border-color: transparent
+          md-chips-wrap.md-chips
+            box-shadow: 0 0
+          .selection-type,
+          .draggable-icon,
+          .delete-option,
+          .add-new,
+          md-radio-group md-radio-button:not(.md-checked),
+          md-radio-group md-radio-button .md-container,
+          md-datepicker[disabled="disabled"],
+          .attach-image
+            display: none !important
+          md-radio-group md-radio-button .md-label
+            margin-left: 8px
         &.active, &.item:active
           border-left: 3px solid #4d90fe
           -webkit-box-shadow: 0 -2px 2px 0 rgba(0,0,0,0.2),0 6px 10px 0 rgba(0,0,0,0.3)
@@ -47,25 +65,21 @@
         .header
           width: 100%
           .poll-name
-            font-size: 20px
+            font-size: 28px
             margin-bottom: 0
             margin-top: 10px
+            input
+              padding-bottom: 10px
             .md-errors-spacer
-              min-height: 0
-          .send-to
-            font-size: 16px
-            margin-bottom: 0
-          .immediate
-            font-size: 16px
+              min-height: 0                     
           .send-time
             margin: -45px 0 0 100px
         .multiple
           width: 100%
           .question
-            font-size: 18px
+            font-size: 20px
             margin-bottom: 0
           .selection-type
-            font-size: 16px
             background: gainsboro
             padding: 0 10px
             border-radius: 5px
@@ -75,41 +89,35 @@
           .editable
             > ul
               padding-left: 0
-              counter-reset: item
               list-style: none
               > li.option
                 position: relative
-                padding-left: 50px
-                &:before
-                  content: counter(item)'. '
-                  counter-increment: item
-                  position: absolute
-                  top: 8px
-                  font-size: 16px
-                  left: 30px
+                padding-left: 30px
                 &:hover
                   .draggable-icon
                     display: inline-block
                 .draggable-icon
                   position: absolute
-                  left: 0
+                  left: -20px
                   top: 5px
+                .count
+                  position: absolute
+                  top: 9px
+                  left: 10px
                 .option-name
                   margin: 0
-                  font-size: 16px
                   md-icon
                     cursor: pointer
                 &.add-new a
-                  font-size: 16px
                   color: #aaaaaa
                   line-height: 2.2
                   cursor: pointer
         .short-answer
           width: 100%
           .question
-            font-size: 18px
+            font-size: 20px
+            margin-bottom: 0
           .selection-type
-            font-size: 16px
             background: gainsboro
             padding: 0 10px
             border-radius: 5px
@@ -119,19 +127,31 @@
           .editable
             .short-answer-text
               margin: 0
-              font-size: 16px
         .attachment
           width: 100%
           .question
-            font-size: 18px
+            font-size: 20px
+            margin-bottom: 0
           .selection-type
-            font-size: 16px
             background: gainsboro
             padding: 0 10px
             border-radius: 5px
             height: 40px
             margin-top: 10px
             margin-left: 10px
+          .attach-image
+            min-width: 0
+            min-height: 0
+            height: 30px
+            line-height: 30px
+            text-transform: none
+            input[type="file"]
+              position: absolute
+              top: 0
+              bottom: 0
+              left: 0
+              right: 0
+              opacity: 0
         .delete-query
           width: 100%
           text-align: right
@@ -164,6 +184,8 @@
         width: 150px
         text-transform: capitalize
     md-card-actions
+      .add-question
+        text-transform: none
       .md-button.submit-poll
         text-transform: capitalize
         padding: 0 10px

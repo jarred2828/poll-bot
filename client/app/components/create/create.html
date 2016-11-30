@@ -2,14 +2,24 @@
 <md-content class="md-padding create-container">
   <md-card class="create-poll" layout="column">
     <ul ui-sortable="$ctrl.sortableOptions" ng-model="$ctrl.poll.queries" class="list">
-      <li>
+      <li ng-class="{'active':$ctrl.isHeaderActive}" ng-click="$ctrl.activateHeader()">
         <div layout="column" class="header">
           <md-input-container class="poll-name" md-no-float flex="100">
             <input ng-model="$ctrl.poll.name" placeholder="Poll Name"/>
           </md-input-container>
           <md-input-container class="send-to" md-no-float flex="100">
-            <input ng-model="$ctrl.poll.sendTo" placeholder="Send To">
-            <md-icon md-font-set="material-icons">search</md-icon>
+            <md-contact-chips
+              ng-model="$ctrl.poll.sendTo"
+              md-contacts="$ctrl.querySearch($query)"
+              md-removable="$ctrl.isHeaderActive"
+              md-contact-name="name"
+              md-contact-image="image"
+              md-contact-email="email"
+              md-require-match="true"
+              md-highlight-flags="i"
+              filter-selected="$ctrl.filterSelected"
+              placeholder="Send To">
+            </md-contact-chips>
           </md-input-container>
           <md-radio-group ng-model="$ctrl.poll.immediate" class="md-primary immediate">
             <md-radio-button value="1">Send Immediately</md-radio-button>
@@ -26,12 +36,12 @@
         <div class="draggable-icon">
           <div class="icon-content"></div>
         </div>
-        <div layout="column" class="multiple" ng-if="item.type == 'multiple'" ng-init="rootIndex = $index">
+        <div layout="column" class="multiple" ng-if="item.type == 'multiple'">
           <div layout="row">
             <md-input-container class="question" md-no-float flex>
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
-            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType(rootIndex)">
+            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
               <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
@@ -43,21 +53,22 @@
                 <div class="draggable-icon rotated">
                   <div class="icon-content"></div>
                 </div>
+                <span class="count">{{$index + 1}}.</span>
                 <md-input-container class="option-name" md-no-float flex>
                   <input ng-model="option.name" placeholder="Option"/>
-                  <md-icon md-font-set="material-icons" ng-click="$ctrl.removeOption(rootIndex, $index)">close</md-icon>
+                  <md-icon class="delete-option" md-font-set="material-icons" ng-click="$ctrl.removeOption($ctrl.poll.queries.indexOf(item), $index)">close</md-icon>
                 </md-input-container>
               </li>
-              <li class="option add-new"><a ng-click="$ctrl.addOption(rootIndex)">Add option</a></li>
+              <li class="option add-new"><a ng-click="$ctrl.addOption($index)">Add option</a></li>
             </ul>
           </div>
         </div>
-        <div layout="column" class="short-answer" ng-if="item.type == 'short'" ng-init="rootIndex = $index">
+        <div layout="column" class="short-answer" ng-if="item.type == 'short'">
           <div layout="row">
             <md-input-container class="question" md-no-float flex>
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
-            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType(rootIndex)">
+            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
               <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
@@ -69,16 +80,21 @@
             </md-input-container>
           </div>
         </div>
-        <div layout="column" class="attachment" ng-if="item.type == 'attachment'" ng-init="rootIndex = $index">
+        <div layout="column" class="attachment" ng-if="item.type == 'attachment'">
           <div layout="row">
             <md-input-container class="question" md-no-float flex>
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
-            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType(rootIndex)">
+            <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
               <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
             </md-select>
+          </div>
+          <div>
+            <md-button class="md-raised attach-image">
+              <input type="file"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Upload File
+            </md-button>
           </div>
         </div>
         <div class="delete-query">
@@ -88,7 +104,7 @@
     </ul>
     <md-divider></md-divider>
     <md-card-actions layout="row" layout-align="space-between end" class="footer">
-      <md-button ng-click="$ctrl.addQuery()"><md-icon md-font-set="material-icons">add_circle</md-icon>&nbsp;Add another question</md-button>
+      <md-button class="add-question" ng-click="$ctrl.addQuery()"><md-icon md-font-set="material-icons">add_circle</md-icon>&nbsp;Add another question</md-button>
       <md-button class="md-primary md-raised">Send</md-button>
     </md-card-actions>
   </md-card>
