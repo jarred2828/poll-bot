@@ -9,23 +9,21 @@
     &:hover
       background-color: #22B8AA
   .poll-list
-    .header
-      background-color: transparent
-    .item
-      .completed-progress
-        position: absolute
-        left: -webkit-calc(50% - 150px)
-        left: -moz-calc(50% - 150px)
-        left: -ms-calc(50% - 150px)
-        left: calc(50% - 150px)
-        div.full-bar
-          border: 1px solid #3949ab
-          max-height: 10px
-          height: 10px
-          width: 250px
-          div.progress-bar
-            background-color: rgb(57,73,171)
-            height: 100%
-        .progress-text
-          max-height: 15px
-          line-height: 1
+    width: 770px
+    margin: 0 auto
+    max-width: 100vw
+    md-card
+      margin-bottom: 30px
+      .header
+        background-color: transparent
+      .item
+        .completed-progress
+          position: absolute
+          left: -webkit-calc(50% - 150px)
+          left: -moz-calc(50% - 150px)
+          left: -ms-calc(50% - 150px)
+          left: calc(50% - 150px)
+          .full-bar
+            width: 250px
+          .progress-text
+            line-height: 0.4

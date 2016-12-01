@@ -3,41 +3,37 @@
   <div layout="row" layout-align="end center">
     <md-button class="md-fab create-poll" ui-sref="create"><md-icon md-font-set="material-icons">add</md-icon></md-button>
   </div>
-  <md-card>
-    <md-list class="poll-list">
+  <md-list class="poll-list">
+    <md-card>
       <md-subheader class="header">Continue editing</md-subheader>
       <md-list-item class="item" ng-repeat="poll in $ctrl.data | filter:{status: 'Draft'}" ng-class="{'last-item': $last}" ui-sref="detail({ id: poll.id })">
         <p>{{ poll.name }}</p>
         <span class="md-secondary">{{ $ctrl.momentDate(poll) }}</span>
       </md-list-item>
-      <md-divider></md-divider>
+    </md-card>
+    <md-card>
       <md-subheader class="header">Active</md-subheader>
       <md-list-item class="item" ng-repeat="poll in $ctrl.data | filter:{status: 'Active'}" ng-class="{'last-item': $last}" ui-sref="detail({ id: poll.id })">
         <p>{{ poll.name }}</p>
-        <div class="completed-progress" layout="row" layout-xs="column" layout-align="start center" layout-align-xs="center start">
-          <div class="full-bar">
-            <div class="progress-bar" ng-style="{'width': poll.completed / poll.total * 100 + '%'}">
-              <md-tooltip>{{ poll.completed / poll.total * 100 | number: 0 }}% Completed!</md-tooltip>
-            </div>
-          </div>
+        <div class="completed-progress" layout="row">
+          <md-progress-linear class="full-bar" md-mode="determinate" value="{{poll.completed / poll.total * 100}}"></md-progress-linear>
+          <md-tooltip>{{ poll.completed / poll.total * 100 | number: 0 }}% Completed!</md-tooltip>
           <div class="progress-text">&nbsp;{{ poll.completed }}/{{poll.total}}</div>
         </div>
         <span class="md-secondary">{{ $ctrl.momentDate(poll) }}</span>
       </md-list-item>
-      <md-divider></md-divider>
+    </md-card>
+    <md-card>
       <md-subheader class="header">Completed</md-subheader>
       <md-list-item class="item" ng-repeat="poll in $ctrl.data | filter: $ctrl.completed" ng-class="{'last-item': $last}" ui-sref="detail({ id: poll.id })">
         <p>{{ poll.name }}</p>
-        <div class="completed-progress" layout="row" layout-xs="column" layout-align="start center" layout-align-xs="center start">
-          <div class="full-bar">
-            <div class="progress-bar" ng-style="{'width': poll.completed / poll.total * 100 + '%'}">
-              <md-tooltip>{{ poll.completed / poll.total * 100 | number: 0 }}% Completed!</md-tooltip>
-            </div>
-          </div>
+        <div class="completed-progress" layout="row">
+          <md-progress-linear class="full-bar" md-mode="determinate" value="{{poll.completed / poll.total * 100}}"></md-progress-linear>
+          <md-tooltip>{{ poll.completed / poll.total * 100 | number: 0 }}% Completed!</md-tooltip>
           <div class="progress-text">&nbsp;{{ poll.completed }}/{{poll.total}}</div>
         </div>
         <span class="md-secondary">{{ $ctrl.momentDate(poll) }}</span>
       </md-list-item>
-    </md-list>
-  </md-card>
+    </md-card>
+  </md-list>
 </md-content>

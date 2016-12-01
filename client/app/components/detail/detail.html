@@ -1,8 +1,136 @@
 <navbar poll-name="$ctrl.pollInfo.name"></navbar>
 <md-content class="md-padding detail-container" layout="column">
-  <h2>{{$ctrl.pollInfo.name}}</h2>
+  <!-- <h2>{{$ctrl.pollInfo.name}}</h2> -->
   <md-card class="poll-detail">
-    <md-card-title>
+    <md-card-content layout="column">
+      <h1 class="poll-name">{{$ctrl.pollInfo.name}}</h1>
+      <p class="description">{{$ctrl.pollInfo.description || 'Some description here'}}</p>
+      <md-chips ng-model="$ctrl.chip.data" readonly="$ctrl.chip.readonly" md-removable="$ctrl.chip.removable">
+        <md-chip-template>
+          <strong>{{$chip}}</strong>
+        </md-chip-template>
+      </md-chips>
+      <p layout="row">
+        <span class="send-date">
+          <md-icon md-font-set="material-icons">event</md-icon>&nbsp;Sent on Nov 14th, 2016
+        </span>
+        <span flex></span>
+        <span class="completed-percent">{{$ctrl.pollInfo.completed}}/{{$ctrl.pollInfo.total}}</span>
+      </p>
+      <div>
+        <md-progress-linear md-mode="determinate" value="{{$ctrl.pollInfo.completed/$ctrl.pollInfo.total*100}}"></md-progress-linear>
+        <md-tooltip>{{ $ctrl.pollInfo.completed/$ctrl.pollInfo.total*100 | number: 0 }}% Completed!</md-tooltip>
+      </div>
+      <section>
+        <md-subheader class="md-primary">1. Who is your favorite cartoon character?<span class="question-type">Multiple choice</span></md-subheader>
+        <md-divider></md-divider>
+        <div class="multiple" layout="row" layout="space-between center">
+          <div class="accordion">
+            <md-list ng-cloak>
+              <md-subheader class="md-no-sticky"><md-button class="md-raised first" ng-click="$ctrl.isFirstOpen = !$ctrl.isFirstOpen"><md-icon md-font-set="material-icons">{{ $ctrl.isFirstOpen? 'remove' : 'add' }}</md-icon></md-button>&nbsp;Mickey Mouse</md-subheader>
+              <md-list-item ng-if="$ctrl.isFirstOpen">
+                <p>Angeli Yuson</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isFirstOpen">
+                <p>Guillermo Gette</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isFirstOpen">
+                <p>Michelle Smith</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isFirstOpen">
+                <p>John Travolta</p>
+              </md-list-item>
+
+              <md-subheader class="md-no-sticky"><md-button class="md-raised second" ng-click="$ctrl.isSecondOpen = !$ctrl.isSecondOpen"><md-icon md-font-set="material-icons">{{ $ctrl.isSecondOpen? 'remove' : 'add' }}</md-icon></md-button>&nbsp;Homer Simpson</md-subheader>
+              <md-list-item ng-if="$ctrl.isSecondOpen">
+                <p>Angeli Yuson</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isSecondOpen">
+                <p>Guillermo Gette</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isSecondOpen">
+                <p>Michelle Smith</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isSecondOpen">
+                <p>John Travolta</p>
+              </md-list-item>
+
+              <md-subheader class="md-no-sticky"><md-button class="md-raised third" ng-click="$ctrl.isThirdOpen = !$ctrl.isThirdOpen"><md-icon md-font-set="material-icons">{{ $ctrl.isThirdOpen? 'remove' : 'add' }}</md-icon></md-button>&nbsp;Mickey Mouse</md-subheader>
+              <md-list-item ng-if="$ctrl.isThirdOpen">
+                <p>Angeli Yuson</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isThirdOpen">
+                <p>Guillermo Gette</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isThirdOpen">
+                <p>Michelle Smith</p>
+              </md-list-item>
+              <md-list-item ng-if="$ctrl.isThirdOpen">
+                <p>John Travolta</p>
+              </md-list-item>
+            </md-list>
+          </div>
+          <span flex></span>
+          <div class="chart-layout" flex="30">
+            <canvas id="pie-chart"></canvas>
+          </div>
+        </div>
+
+        <md-subheader class="md-primary">2. Describe your ideal holiday<span class="question-type">Short answer</span></md-subheader>
+        <md-divider></md-divider>
+        <div class="short-answer">
+          <md-list>
+            <md-list-item layout="column">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+              classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin</p>
+              <h3>Angeli Yuson</h3>
+            </md-list-item>
+            <md-list-item layout="column">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+              classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin</p>
+              <h3>Guillermo Gette</h3>
+            </md-list-item>
+            <md-list-item layout="column">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+              classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin</p>
+              <h3>Michelle Smith</h3>
+            </md-list-item>
+            <md-list-item layout="column">
+              <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of 
+              classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin</p>
+              <h3>John Travolta</h3>
+            </md-list-item>
+          </md-list>
+        </div>
+
+        <md-subheader class="md-primary">3. Upload a photo during your holidays<span class="question-type">Attachment</span></md-subheader>
+        <md-divider></md-divider>
+        <div class="attachment">
+          <md-list>
+            <md-list-item>
+              <md-icon class="photo" md-font-set="material-icons">photo</md-icon>
+              <span>Angeli Yuson</span>
+              <md-button class="open-new md-icon-button"><md-icon md-font-set="material-icons">open_in_new</md-icon></md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-icon class="text" md-font-set="material-icons">chat</md-icon>
+              <span>Guillermo Gette</span>
+              <md-button class="open-new md-icon-button"><md-icon md-font-set="material-icons">open_in_new</md-icon></md-button>
+            </md-list-item>
+            <md-list-item>
+              <md-icon class="sheet" md-font-set="material-icons">speaker_notes</md-icon>
+              <span>Michelle Smith</span>
+              <md-button class="open-new md-icon-button"><md-icon md-font-set="material-icons">open_in_new</md-icon></md-button>
+            </md-list-item>
+          </md-list>
+        </div>
+      </section>
+    </md-card-content>
+    <md-divider></md-divider>
+    <md-card-actions layout="row" layout-align="end">
+      <md-button class="md-raised md-primary end-poll">End Poll</md-button>
+    </md-card-actions>
+    <!-- <md-card-title>
       <md-card-title-text>
         <span class="md-headline">Poll Details</span>
       </md-card-title-text>
@@ -63,6 +191,6 @@
       <div class="chart-layout">
         <canvas id="pie-chart"></canvas>
       </div>
-    </md-card-content>
+    </md-card-content> -->
   </md-card>
 </md-content>

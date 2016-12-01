@@ -12,6 +12,11 @@ class DetailController {
       end: new Date(this.pollInfo.end)
     };
     this.renderChart();
+    this.chip = {
+      data: ['Angeli Yuson', 'Guillermo Gette', 'Project-X (room)', 'Zlapps (team)'],
+      readonly: true,
+      removable: false
+    };
   }
 
   renderChart() {
