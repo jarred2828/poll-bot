@@ -10,7 +10,7 @@
   <md-list class="poll-list" ng-if="$ctrl.data.length > 0">
     <md-card>
       <md-subheader class="header">Continue editing</md-subheader>
-      <md-list-item class="item" ng-repeat="poll in $ctrl.data | filter:{status: 'Draft'}" ng-class="{'last-item': $last}" ui-sref="detail({ id: poll.id })">
+      <md-list-item class="item" ng-repeat="poll in $ctrl.data | filter:{status: 'Draft'}" ng-class="{'last-item': $last}" ui-sref="edit({ id: poll.id })">
         <p>{{ poll.name }}</p>
         <span class="md-secondary">{{ $ctrl.momentDate(poll) }}</span>
       </md-list-item>
@@ -36,7 +36,7 @@
           <md-tooltip>{{ poll.completed / poll.total * 100 | number: 0 }}% Completed!</md-tooltip>
           <div class="progress-text">&nbsp;{{ poll.completed }}/{{poll.total}}</div>
         </div>
-        <span class="md-secondary">{{ $ctrl.momentDate(poll) }}</span>
+        <span class="md-secondary" ng-class="{'cancelled': poll.status == 'Cancelled', 'completed': poll.status == 'Completed'}">{{ $ctrl.momentDate(poll) }}</span>
       </md-list-item>
     </md-card>
   </md-list>

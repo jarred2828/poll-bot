@@ -59,7 +59,7 @@ class HomeController {
     } else if (poll.status == 'Active') {
       return `Created ${moment(poll.updated).fromNow()}`;
     } else if (poll.status == 'Cancelled') {
-      return `Cancelled on ${moment(poll.updated).fromNow()}`;
+      return `Ended on ${moment(poll.updated).fromNow()}`;
     } else {
       return `Completed on ${moment(poll.updated).fromNow()}`;
     }
