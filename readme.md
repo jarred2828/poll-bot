@@ -19,7 +19,7 @@
 3. Clone this repo:
     
     ```
-    git clone *repo name(ssh or http)*
+    git clone https://git.heroku.com/ng-starter.git
     ```
 
 4. Navigate to this repo
