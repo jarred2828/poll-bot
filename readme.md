@@ -19,7 +19,7 @@
 3. Clone this repo:
     
     ```
-    git clone https://git.heroku.com/ng-starter.git
+    git clone https://github.com/jtlee125/poll-bot.git
     ```
 
 4. Navigate to this repo
