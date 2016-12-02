@@ -1,5 +1,5 @@
 <navbar poll-name="$ctrl.poll.name"></navbar>
-<md-content class="md-padding create-container">
+<md-content class="md-padding edit-container">
   <md-card class="create-poll" layout="column">
     <ul ui-sortable="$ctrl.sortableOptions" ng-model="$ctrl.poll.queries" class="list">
       <li ng-class="{'active':$ctrl.isHeaderActive}" ng-click="$ctrl.activateHeader()">

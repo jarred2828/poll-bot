@@ -18,18 +18,22 @@
     -moz-transform: rotate(90deg)
     -ms-transform: rotate(90deg)
     transform: rotate(90deg)
-.create-container.md-padding
+.edit-container.md-padding
   min-height: -webkit-calc(100vh - 144px)
   min-height: -moz-calc(100vh - 144px)
   min-height: -ms-calc(100vh - 144px)
   min-height: calc(100vh - 144px)
   padding-top: 80px
+  overflow-x: hidden
   > h1
     text-align: center
     font-size: 30px
   .create-poll
     width: 770px
-    max-width: 100vw
+    max-width: -webkit-calc(100vw - 20px)
+    max-width: -moz-calc(100vw - 20px)
+    max-width: -ms-calc(100vw - 20px)
+    max-width: calc(100vw - 20px)
     margin: auto
     > ul
       margin: 0
@@ -78,6 +82,7 @@
               min-height: 0                     
           .send-time
             margin: -45px 0 0 100px
+            display: inline-table
         .multiple
           width: 100%
           .question
