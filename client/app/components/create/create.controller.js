@@ -3,7 +3,7 @@ import angular from 'angular';
 class CreateController {
   constructor() {
     this.name = 'create';
-    this.isHeaderActive = false;
+    this.isHeaderActive = true;
     this.poll = {
       start: new Date(),
       end: new Date()

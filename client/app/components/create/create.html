@@ -42,7 +42,7 @@
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
             <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
-              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
+              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Choice</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
             </md-select>
@@ -69,7 +69,7 @@
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
             <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
-              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
+              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Choice</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
             </md-select>
@@ -86,7 +86,7 @@
               <input ng-model="item.question" placeholder="Question"/>
             </md-input-container>
             <md-select ng-model="item.type" class="md-no-underline selection-type" ng-change="$ctrl.changeType($index)">
-              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Option</md-option>
+              <md-option value="multiple"><md-icon md-font-set="material-icons">radio_button_checked</md-icon>&nbsp;Multiple Choice</md-option>
               <md-option value="short"><md-icon md-font-set="material-icons">short_text</md-icon>&nbsp;Short Answer</md-option>
               <md-option value="attachment"><md-icon md-font-set="material-icons">photo</md-icon>&nbsp;Attachment</md-option>
             </md-select>
@@ -105,7 +105,11 @@
     <md-divider></md-divider>
     <md-card-actions layout="row" layout-align="space-between end" class="footer">
       <md-button class="add-question" ng-click="$ctrl.addQuery()"><md-icon md-font-set="material-icons">add_circle</md-icon>&nbsp;Add another question</md-button>
-      <md-button class="md-primary md-raised">Send</md-button>
+      <section>
+        <md-button class="md-primary md-raised">Send</md-button>
+        <md-button class="md-primary md-raised">Save for later</md-button>
+      </section>
     </md-card-actions>
   </md-card>
 </md-content>
+<footer></footer>
