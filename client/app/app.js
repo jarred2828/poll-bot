@@ -3,6 +3,7 @@ import uiRouter from 'angular-ui-router';
 import ngMaterial from 'angular-material';
 import 'angular-material-data-table';
 import 'angular-ui-sortable';
+import 'angular-material-datetimepicker';
 
 import Common from './common/common';
 import Components from './components/components';
@@ -11,6 +12,7 @@ import AppComponent from './app.component';
 import 'angular-material/angular-material.css';
 import 'angular-material-data-table/dist/md-data-table.css';
 import 'normalize.css';
+import 'angular-material-datetimepicker/css/material-datetimepicker.min.css';
 
 angular.module('app', [
     uiRouter,
@@ -18,7 +20,8 @@ angular.module('app', [
     Components,
     ngMaterial,
     'md.data.table',
-    'ui.sortable'
+    'ui.sortable',
+    'ngMaterialDatePicker'
   ])
   .config(($locationProvider, $urlRouterProvider) => {
     "ngInject";

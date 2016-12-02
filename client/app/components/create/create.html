@@ -28,7 +28,7 @@
             </md-radio-button>
           </md-radio-group>
           <md-input-container class="send-time">
-            <md-datepicker ng-model="$ctrl.poll.sendTime" ng-disabled="$ctrl.poll.immediate == 1"></md-datepicker>
+            <input mdc-datetime-picker date="true" time="true" type="text" id="datetime" min-date="date" ng-model="$ctrl.poll.sendTime" class="md-input" ng-disabled="$ctrl.poll.immediate == 1">
           </md-input-container>
         </div>
       </li>
