@@ -130,68 +130,6 @@
     <md-card-actions layout="row" layout-align="end">
       <md-button class="md-raised md-primary end-poll">End Poll</md-button>
     </md-card-actions>
-    <!-- <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">Poll Details</span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content layout="column">
-      <p layout="row">
-        Question: 
-        <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.question}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
-          <input ng-model="$ctrl.pollInfo.question">
-        </md-input-container>
-      </p>
-      <p layout="row">
-        Answer: 
-        <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.answer}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
-          <input ng-model="$ctrl.pollInfo.answer">
-        </md-input-container>
-      </p>
-      <p layout="row">
-        Audience: 
-        <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.audience}}</span>
-        <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" flex="30">
-          <input ng-model="$ctrl.pollInfo.audience">
-        </md-input-container>
-      </p>
-      <div layout="row">
-        <p layout="row">
-          Start: 
-          <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.start}}</span>
-          <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'">
-            <md-datepicker ng-model="$ctrl.dateInfo.start"></md-datepicker>
-          </md-input-container>
-        </p>
-        <p layout="row" class="second-layout">
-          End: 
-          <span ng-if="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">{{$ctrl.pollInfo.end}}</span>
-          <md-input-container ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'">
-            <md-datepicker ng-model="$ctrl.dateInfo.end"></md-datepicker>
-          </md-input-container>
-        </p>
-      </div>
-      <p layout="row">Status:<span>{{$ctrl.pollInfo.status}}</span></p>
-    </md-card-content>
-    <md-card-actions ng-if="$ctrl.pollInfo.status == 'Draft' || $ctrl.pollInfo.status == 'Scheduled'" layout="row" layout-align="start">
-      <md-button class="md-raised md-primary save-changes">Save Changes</md-button>
-    </md-card-actions>
-  </md-card>
-  <md-card class="results" ng-show="$ctrl.pollInfo.status != 'Draft' && $ctrl.pollInfo.status != 'Scheduled'">
-    <md-card-title>
-      <md-card-title-text>
-        <span class="md-headline">Results</span>
-        <span class="md-subhead">Sort By: <a>Question</a> / <a>User</a></span>
-      </md-card-title-text>
-    </md-card-title>
-    <md-card-content layout="row">
-      <p layout="row" flex="50">Question 1:<span>{{$ctrl.pollInfo.question}}</span></p>
-      <div class="chart-layout">
-        <canvas id="pie-chart"></canvas>
-      </div>
-    </md-card-content> -->
   </md-card>
 </md-content>
 <footer></footer>
