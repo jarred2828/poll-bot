@@ -75,9 +75,10 @@
             </md-select>
           </div>
           <div layout="column" class="editable">
-            <md-input-container class="short-answer-text" md-no-float flex="80">
+            <!-- <md-input-container class="short-answer-text" md-no-float flex="80">
               <input ng-model="item.answer" placeholder="Short answer text"/>
-            </md-input-container>
+            </md-input-container> -->
+            <p class="dummy-text">Users are able to respond with any text to the question</p>
           </div>
         </div>
         <div layout="column" class="attachment" ng-if="item.type == 'attachment'">
@@ -92,9 +93,10 @@
             </md-select>
           </div>
           <div>
-            <md-button class="md-raised attach-image">
+            <!-- <md-button class="md-raised attach-image">
               <input type="file"><md-icon md-font-set="material-icons">cloud_upload</md-icon>&nbsp;Upload File
-            </md-button>
+            </md-button> -->
+            <p class="dummy-text">Users are able to respond with an attachment</p>
           </div>
         </div>
         <div class="delete-query">

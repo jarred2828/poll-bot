@@ -38,6 +38,9 @@
       > li
         padding: 20px 30px
         outline: 0
+        .dummy-text
+          font-style: italic
+          color: #777
         &:not(.active)
           input.md-input
             border-color: transparent
@@ -49,7 +52,7 @@
           .add-new,
           md-radio-group md-radio-button:not(.md-checked),
           md-radio-group md-radio-button .md-container,
-          md-datepicker[disabled="disabled"],
+          #datetime[disabled="disabled"],
           .attach-image
             display: none !important
           md-radio-group md-radio-button .md-label
